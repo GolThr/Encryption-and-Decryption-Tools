@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>不惧“窥探” - AES</title>
+    <link rel="stylesheet" type="text/css" href="styles/main_styles.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/index_styles.css"/>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/crypto-js.js"></script>
+</head>
+<body>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <div class="content">
+        <script type="text/javascript" src="js/header.js"></script>
+
+        <div class="input_content">
+            <textarea id="input_origin" placeholder="请输入文字"></textarea>
+        </div>
+        <div class="option_line">
+            <div class="option_item">
+                <span>密钥</span>
+                <input id="key" class="default_input" placeholder="密钥必须8/16/32位"/>
+            </div>
+            <div class="btn_line">
+                <button id="encryption" class="main_btn_style">AES加密</button>
+                <button id="decryption" class="main_btn_style" style="margin-left: 10px">AES解密</button>
+            </div>
+        </div>
+        <div class="input_content">
+            <textarea id="input_result" placeholder="结果输出"></textarea>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/AESPage.js"></script>
+</body>
+</html>

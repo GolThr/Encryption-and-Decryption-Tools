@@ -18,7 +18,32 @@
         </div>
         <div class="option_line">
             <div class="option_item">
-                <span>密钥</span>
+                <span style="margin-right: 5px;">模式</span>
+                <div class="select">
+                    <select id="mode" onchange="onModeChange()">
+                        <option value ="ecb">ECB</option>
+                        <option value ="cbc">CBC</option>
+                        <option value="ctr">CTR</option>
+                        <option value="ofb">OFB</option>
+                        <option value="cfb">CFB</option>
+                    </select>
+                </div>
+                <span style="margin: 0 5px;">填充</span>
+                <div class="select">
+                    <select id="padding">
+                        <option value ="pkcs7">Pkcs7</option>
+                        <option value ="ansix923">AnsiX923</option>
+                        <option value="iso10126">Iso10126</option>
+                        <option value="iso97971">Iso97971</option>
+                        <option value="nopadding">NoPadding</option>
+                        <option value="zeropadding">ZeroPadding</option>
+                    </select>
+                </div>
+                <div id="iv_content" class="option_item" style="display: none;">
+                    <span style="margin: 0 5px;">偏移量iv</span>
+                    <input id="iv" class="default_input" placeholder="ECB和CFB模式不填"/>
+                </div>
+                <span style="margin: 0 5px;">密钥</span>
                 <input id="key" class="default_input" placeholder="密钥必须8/16/32位"/>
             </div>
             <div class="btn_line">
@@ -31,6 +56,7 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="js/indexPage.js"></script>
+    <script type="text/javascript" src="js/dialog_tips.js"></script>
+    <script type="text/javascript" src="js/DESPage.js"></script>
 </body>
 </html>

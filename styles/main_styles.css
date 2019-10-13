@@ -105,8 +105,54 @@ textarea{
 
 
 
+/*Select**********************/
+.select {
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    vertical-align: middle;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff;
+    color: #555;
+    border: 2px solid rgba(192, 192, 192, 0);
+    text-shadow: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 6px #e9e9e9;
+    z-index: 2;
+}
 
+.select:hover {
+    border: 2px solid #c0c0c0;
+}
 
+.select:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top-color: #ccc;
+    top: 14px;
+    right: 10px;
+    cursor: pointer;
+    z-index: -2;
+}
+.select select {
+    cursor: pointer;
+    padding: 5px 25px 5px 5px;
+    width: 100%;
+    border: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.select select:focus {
+    outline: none;
+}
+/*****************************/
 
 /*Content*********************/
 .content{
@@ -130,7 +176,12 @@ textarea{
     margin: 20px 0 0 0;
 }
 
-.option_item{}
+.option_item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 
 .btn_line{
     display: flex;
@@ -245,7 +296,7 @@ textarea{
     position: absolute;
     top: 0;
     border-radius: 2rem 2rem 0 0;
-    background: #7dc5c1;
+    background: #343434;
 }
 
 .dialog_progress{

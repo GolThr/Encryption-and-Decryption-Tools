@@ -1,8 +1,8 @@
-$('.tool_title').text('AES加解密');
-$('#aes').css({'background':'#404040'});
+$('.tool_title').text('3DES加解密');
+$('#des_3').css({'background':'#404040'});
 onModeChange();
 
-function aesEncrypt(msg, key, modeStr, iv, paddingStr) {
+function des3Encrypt(msg, key, modeStr, iv, paddingStr) {
     var mode = CryptoJS.mode.ECB;
     var padding = CryptoJS.pad.Pkcs7;
     if(modeStr == "ecb"){
@@ -30,14 +30,14 @@ function aesEncrypt(msg, key, modeStr, iv, paddingStr) {
         padding = CryptoJS.pad.ZeroPadding;
     }
     //加密
-    return encrypt = CryptoJS.AES.encrypt(msg, CryptoJS.enc.Utf8.parse(key), {
+    return encrypt = CryptoJS.DES.encrypt(msg, CryptoJS.enc.Utf8.parse(key), {
         iv: CryptoJS.enc.Utf8.parse(iv),
         mode: mode,
         padding: padding
     }).toString();
 }
 
-function aesDecrypt(msg, key, modeStr, iv, paddingStr) {
+function des3Decrypt(msg, key, modeStr, iv, paddingStr) {
     var mode = CryptoJS.mode.ECB;
     var padding = CryptoJS.pad.Pkcs7;
     if(modeStr == "ecb"){
@@ -65,7 +65,7 @@ function aesDecrypt(msg, key, modeStr, iv, paddingStr) {
         padding = CryptoJS.pad.ZeroPadding;
     }
     //解密
-    return decrypt = CryptoJS.AES.decrypt(msg, CryptoJS.enc.Utf8.parse(key), {
+    return decrypt = CryptoJS.DES.decrypt(msg, CryptoJS.enc.Utf8.parse(key), {
         iv: CryptoJS.enc.Utf8.parse(iv),
         mode: mode,
         padding: padding
@@ -88,7 +88,7 @@ $('#encryption').click(function (e) {
         if(result == null || result == ""){
             $('#input_result').val("参数错误！！！");
         }
-        var result = aesEncrypt(origin, key, mode, iv, padding);
+        var result = des3Encrypt(origin, key, mode, iv, padding);
         $('#input_result').val(result);
     }
 });
@@ -109,7 +109,7 @@ $('#decryption').click(function (e) {
         if(result == null || result == ""){
             $('#input_result').val("参数错误！！！");
         }
-        var result = aesDecrypt(origin, key, mode, iv, padding);
+        var result = des3Decrypt(origin, key, mode, iv, padding);
         $('#input_result').val(result);
     }
 });

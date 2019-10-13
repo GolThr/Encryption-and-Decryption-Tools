@@ -24,13 +24,25 @@ function rsaDecrypt(msg, key) {
 $('#encryption').click(function (e) {
     var origin = $.trim($('#input_origin').val());
     var key = $.trim($('#pub_key').val());
-    var result = rsaEncrypt(origin, key);
-    $('#input_result').text(result);
+    if(origin == null || origin == ""){
+        showTip("请输入待转换文字！");
+    }else if(key == null || key == ""){
+        showTip("请输入密钥！");
+    }else {
+        var result = rsaEncrypt(origin, key);
+        $('#input_result').val(result);
+    }
 });
 
 $('#decryption').click(function (e) {
     var origin = $.trim($('#input_origin').val());
     var key = $.trim($('#pri_key').val());
-    var result = rsaDecrypt(origin, key);
-    $('#input_result').text(result);
+    if(origin == null || origin == ""){
+        showTip("请输入待转换文字！");
+    }else if(key == null || key == ""){
+        showTip("请输入密钥！");
+    }else {
+        var result = rsaDecrypt(origin, key);
+        $('#input_result').val(result);
+    }
 });
